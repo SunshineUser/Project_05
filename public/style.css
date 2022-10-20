@@ -1,9 +1,9 @@
 nav{
     display:flex;
     justify-content: space-around;
-    background-color: rgb(89, 240, 240);
+    background-color: #403233;
     padding:1em;
-    color:white;
+    color:#F19A3E;
     font-family: 'Ubuntu', sans-serif;
     font-size:1.7em;
     font-weight:600;
@@ -17,5 +17,52 @@ nav{
 
 nav a{
     text-decoration:none;
-    color:white;
+    color:#ABEDC6;
+}
+
+form{
+    display:flex;
+    justify-content:center;
+    flex-direction: column;
+    padding:3em;
+    margin-left:15em;
+    margin-right:15em;
+}
+
+#newAccount{
+    margin-top:2em;
+}
+
+.offer{
+    display:flex;
+    justify-content:space-between;
+    background-color:#98D9C2;
+    padding:.4em;
+}
+
+.username{
+    background-color:#82d7b9;
+    border-bottom:#403233 2px solid;
+    padding:.1em;
+    margin-top:.2em;
+    font-size:1.3em;
+    font-family:"Ubuntu", sans-serif;
+    color:#F0EDEE;
+    box-shadow:#417562 2px 2px;
+}
+.title{
+    background-color:#98D9C2 ;
+    padding:2px;
+    margin-right:1em;
+    margin-left:1em;
+    font-size:1.3em;
+    color: #403233;
+    font-weight:600;
+    box-shadow:#417562 1px 1px;
+}
+.textSpace{
+    display:flex;
+    background-color:#ebcfb0;
+    border:#403233 2px solid;
+    padding:2.5em;
 }

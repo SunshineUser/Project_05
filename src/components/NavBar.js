@@ -7,14 +7,10 @@ const NavBar = () =>{
         <nav>
             <a id="iansListH">Ian'sList</a>
             <Link to="">Home</Link>
-            <Link t0="posts">Posts</Link>
-            <Link to="profile">Profile</Link>
-            <Link to="login">Log In</Link>
-
-
-
-      
-
+            <Link to="Posts">Posts</Link>
+            <Link to="Profile">Profile</Link>
+            <Link to="Login">Log In</Link>
+            <Link to="Register">Register</Link>
         </nav>
     )
 }
