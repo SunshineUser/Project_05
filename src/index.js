@@ -8,6 +8,7 @@ import Profile from "./components/Profile";
 import Posts from "./components/Posts";
 import Index from "./components/Index"
 import Register from "./components/Register"
+import MakePost from "./components/MakePost"
 
 
 const router = createBrowserRouter([
@@ -35,7 +36,8 @@ const router = createBrowserRouter([
             {
                 path: "/Profile",
                 element: <Profile/>
-            }
+            },
+            
         ]
     }
 ])

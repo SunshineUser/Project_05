@@ -65,4 +65,9 @@ form{
     background-color:#ebcfb0;
     border:#403233 2px solid;
     padding:2.5em;
+    
+}
+
+.description{
+    align-self:flex-end;
 }

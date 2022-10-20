@@ -1,28 +1,38 @@
 import React, {useEffect, useState } from "react";
 import ReactDOM from "react-dom";
+import { Link,Outlet } from "react-router-dom";
+import MakePost from "./MakePost"
+//import { useNavigation } from '@react-navigation/native'
 
+//establish posts component for outputting visual post information as well as managing the posts, including deleting posts and sending them (within separate trees)
 const Posts=()=>{
     const [postData, setPostData] = useState([])
+    //toggle button for the make new post location 
+    const [makePostToggle, setMakePostToggle] = useState(false);
 
-    useEffect(()=>{
-        async function fetchPostData(){
-            try{
-                const response = await fetch("https://strangers-things.herokuapp.com/api/2209-ftb-mt-web/posts");
-                let data = await response.json();
-                setPostData(data.data.posts);
-                console.log(data.data.posts);
-                // console.log(postData) has this been set yet?
-            } catch(error){
-                console.log(error);
-            }
-            
+    const handlePostFormToggle=() => makePostToggle? setMakePostToggle(false):setMakePostToggle(true)
+    
+    async function fetchPostData(cB){
+        try{
+            const response = await fetch("https://strangers-things.herokuapp.com/api/2209-ftb-mt-web-ft/posts");
+            let data = await response.json();
+            cB(data.data.posts);
+            console.log(data.data.posts);
+            // console.log(postData) has this been set yet?
+        } catch(error){
+            console.log(error);
         }
-        fetchPostData();
+        
+    }
+    useEffect(()=>{ 
+        fetchPostData(setPostData);
     },[])
 
 return(
     <div>
         {/* <div>{console.log(postData)}</div> */}
+        <h1><button onClick={handlePostFormToggle}>Make a new Post</button></h1>
+        {makePostToggle?<MakePost setPostData={setPostData} fetchPostData={fetchPostData} />:""}
         {
             postData.length ? postData.map((post, idx) => {
                 return (
