@@ -33,7 +33,7 @@ const Homepage = () =>{
         <div>
             <NavBar /> 
             <DisplayName />
-            <Outlet context={apiData} />
+            <Outlet />
             
         </div>
     )

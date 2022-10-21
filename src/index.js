@@ -6,8 +6,10 @@ import Homepage from "./components/Homepage";
 import LogIn from "./components/Login";
 import Profile from "./components/Profile";
 import Posts from "./components/Posts";
-import Index from "./components/Index"
-import Register from "./components/Register"
+import Index from "./components/Index";
+import Register from "./components/Register";
+import EditPost from "./components/EditPost";
+
 
 
 const router = createBrowserRouter([
@@ -30,11 +32,16 @@ const router = createBrowserRouter([
             },
             {
                 path: "/Posts",
-                element: <Posts/>
+                element: <Posts/>,
             },
             {
                 path: "/Profile",
-                element: <Profile/>
+                element: <Profile/>,
+                children:
+                [{
+                    path: "/Profile/EditPost",
+                    element: <EditPost/>
+                }]
             },
             
         ]
