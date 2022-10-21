@@ -7,8 +7,6 @@ import { useOutletContext } from 'react-router-dom'
 const Posts=()=>{
     const [postData, setPostData] = useState([])
 
-    const profileData= useOutletContext();
-    console.log("this is the profile data" + profileData);
     //toggle button for the make new post location 
     const [makePostToggle, setMakePostToggle] = useState(false);
 
@@ -50,11 +48,7 @@ return(
                 <div className="textSpace">
                 <div className="price">Price = {post.price}</div>
                 <div className="description">Description:{post.description}</div>
-
-
-                    {/* set a ternary to show a post as deletable only if it's mine by matching token names or whatever */}
-                    { console.log("show us the data"+ profileData) }
-                <div><button className="delete">delete?</button></div>
+                    
                 </div>
                 </div>
                 // do nothing

@@ -34,8 +34,10 @@ useEffect(()=>{
             {console.log(profileData)}
             <div className="posts">Posts: {profileData.posts && profileData.posts.length? 
             
+            
             profileData.posts.map((post, idx)=>{
                 return(
+                    post.active?
                     <div key={idx}>
                     <div className="offer">
                     <div className="title">{post.title}</div>
@@ -48,6 +50,7 @@ useEffect(()=>{
                     <DeletePost post={post._id}/>
                     </div>
                     </div>
+                    : ""
                 )
             })
             :"It looks like you haven't posted yet."}</div>
