@@ -65,9 +65,21 @@ form{
     background-color:#ebcfb0;
     border:#403233 2px solid;
     padding:2.5em;
-    
+    flex-direction:column;
 }
 
 .description{
     align-self:flex-end;
+}
+
+.currentUser{
+    float:right;
+    background-color:#82d7b9;
+    border-bottom:#403233 2px solid;
+    padding:.1em;
+    margin-top:.2em;
+    font-size:1.3em;
+    font-family:"Ubuntu", sans-serif;
+    color:#F0EDEE;
+    box-shadow:#417562 2px 2px;
 }

@@ -7,6 +7,12 @@ import ReactDOM from "react-dom";
 
 
 const LogIn=() =>{
+
+    //logout function lmao (resets token and that's all it needs to do)
+    const logOut=()=>{
+        localStorage.setItem("token","")
+    }
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("")
     //setp 2 create some state (you might need multiple to hold the username password whatever authentication you need from your users)
@@ -41,11 +47,7 @@ const LogIn=() =>{
             //acquiring our wristband (entry)
             const data = await response.json()
             console.log("this is our translated data: ", data)
-            // local storage
-                // take the json webtoken from the translated process and store it in local storage
-                //store things in local storage using a method called localStorage.setItem()
-                    //Note: the localStorage.setItem( method takes in two arguments)
-                    // 1) what is the name of the key (string) and value
+            // local storageToken 
             localStorage.setItem("token", data.data.token);
              
         }catch(error){
@@ -62,6 +64,10 @@ const LogIn=() =>{
     return(
         <div>
             {/* attach the callback function that we just wrote to the form element itself and specifically we need to create a ne event listeneder for an onSubmit Event */}
+            
+            {/* ternary for logout checks log condition */}
+            {!localStorage.token && !localStorage.token.length?
+
             <form onSubmit={formSubmitHandler}>
                 <label>Enter Username Here  </label>
                 <input type="text" value={username} onChange={(event) => {setUsername(event.target.value) 
@@ -76,6 +82,16 @@ const LogIn=() =>{
 
                 <button id="Login" type="submit">Log in</button>
             </form>
+            : <div>
+            <div> You are currently logged in. Would you like to log out?</div>
+            <form onSubmit={logOut} type="submit">
+                <button id="logOut" type="submit">Log Out</button>
+            </form>
+            </div>
+                
+            
+            }
+
         </div>
     )
 }

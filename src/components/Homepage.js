@@ -1,8 +1,8 @@
 import React, { useEffect }  from "react";
 import {useState} from "react";
 import NavBar from "./NavBar";
-import { Outlet} from "react-router-dom";
-
+import { Outlet } from "react-router-dom";
+import DisplayName from "./DisplayName";
 
 
 
@@ -31,8 +31,10 @@ const Homepage = () =>{
 
     return(
         <div>
-            <NavBar />
+            <NavBar /> 
+            <DisplayName />
             <Outlet context={apiData} />
+            
         </div>
     )
 }

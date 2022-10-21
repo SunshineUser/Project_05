@@ -1,12 +1,14 @@
 import React, {useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import { Link,Outlet } from "react-router-dom";
 import MakePost from "./MakePost"
-//import { useNavigation } from '@react-navigation/native'
+import { useOutletContext } from 'react-router-dom'
 
 //establish posts component for outputting visual post information as well as managing the posts, including deleting posts and sending them (within separate trees)
 const Posts=()=>{
     const [postData, setPostData] = useState([])
+
+    const profileData= useOutletContext();
+    console.log("this is the profile data" + profileData);
     //toggle button for the make new post location 
     const [makePostToggle, setMakePostToggle] = useState(false);
 
@@ -36,6 +38,8 @@ return(
         {
             postData.length ? postData.map((post, idx) => {
                 return (
+                    // eww a complex piece of code that "deletes" non active items
+                post.active?
                 <div key={idx}>
                 <div className="offer">
                 <div className="username">User       {post.author.username}</div>
@@ -46,9 +50,15 @@ return(
                 <div className="textSpace">
                 <div className="price">Price = {post.price}</div>
                 <div className="description">Description:{post.description}</div>
-                <div className="willDeliver">{post.willDeliver}</div>
+
+
+                    {/* set a ternary to show a post as deletable only if it's mine by matching token names or whatever */}
+                    { console.log("show us the data"+ profileData) }
+                <div><button className="delete">delete?</button></div>
                 </div>
                 </div>
+                // do nothing
+                :""
                 )
             })
             :<div> there's no user data </div>
