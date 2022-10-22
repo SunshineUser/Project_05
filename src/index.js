@@ -8,7 +8,6 @@ import Profile from "./components/Profile";
 import Posts from "./components/Posts";
 import Index from "./components/Index";
 import Register from "./components/Register";
-import EditPost from "./components/EditPost";
 
 
 
@@ -36,14 +35,8 @@ const router = createBrowserRouter([
             },
             {
                 path: "/Profile",
-                element: <Profile/>,
-                children:
-                [{
-                    path: "/Profile/EditPost",
-                    element: <EditPost/>
-                }]
-            },
-            
+                element: <Profile />,
+            }
         ]
     }
 ])

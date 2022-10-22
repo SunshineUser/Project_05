@@ -11,10 +11,10 @@ const Posts=()=>{
 
     //toggle button for the make new post location 
     const [makePostToggle, setMakePostToggle] = useState(false);
-    const [showDetailsToggle, setShowDetails] = useState(false);
+    
 
     const handlePostFormToggle=() => makePostToggle? setMakePostToggle(false):setMakePostToggle(true)
-    const detailsLocationToggle = () => showDetailsToggle? setShowDetails(false):setShowDetails(true)
+    
     
     async function fetchPostData(cB){
         try{
@@ -49,18 +49,15 @@ return(
 
                 {/* more details area calls more details */}
                 {/* <Outlet context={post}/> */}
-                <button onClick={detailsLocationToggle} >
-                {showDetailsToggle? <p>More details</p>:<p>Less details</p>}
-                </button>
+                
 
                 </div>
 
                 <div className="textSpace">
                 <div className="price">Price = {post.price}</div>
                 <div className="description">Description:{post.description}</div>  
-                {showDetailsToggle?<SeeDetails post={post}/>:""}
+                <SeeDetails post={post}/>
                 </div>
-                
                 </div>
                 // do nothing
                 :""

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
-import { Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import DeletePost from "./DeletePost";
+import EditPost from "./EditPost"
 
 
 const Profile=()=>{
@@ -47,6 +48,10 @@ useEffect(()=>{
                     <div className="textSpace">
                     <div className="price">Price = {post.price}</div>
                     <div className="description">Description:{post.description}</div> 
+                    {/* <Link to={`/Profile/${post._id}`}>Edit Post</Link> 
+                    
+                    welp we tried boys, maybe next time (after I rewrite the entire thing)*/}
+                    <EditPost post={post}/>
                     <DeletePost post={post._id}/>
                     </div>
                     </div>
