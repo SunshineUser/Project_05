@@ -1,32 +1,31 @@
 import React, {useEffect, useState} from "react";
-import { Link } from "react-router-dom";
 import DeletePost from "./DeletePost";
-import EditPost from "./EditPost"
+import EditPost from "./EditPost";
 
 
 const Profile=()=>{
-const [profileData, setProfileData] = useState({});
+    const [profileData, setProfileData] = useState({});
 
 
-useEffect(()=>{
-    async function fetchProfileData(){
-        try{
+    useEffect(()=>{
+        async function fetchProfileData(){
+            try{
 
-            const response = await fetch("https://strangers-things.herokuapp.com/api/2209-ftb-mt-web-ft/users/me",
-            {
-            headers:{
-                'Content-Type': 'application/json',
-                'Authorization': 'bearer '+ localStorage.getItem("token")
-            },
-            })
-            let Data= await response.json()
-            setProfileData(Data.data);
-        } catch(error){
-            console.log(error);
+                const response = await fetch("https://strangers-things.herokuapp.com/api/2209-ftb-mt-web-ft/users/me",
+                    {
+                    headers:{
+                        'Content-Type': 'application/json',
+                        'Authorization': 'bearer '+ localStorage.getItem("token")
+                    },
+                    })
+                let Data= await response.json()
+                setProfileData(Data.data);
+            } catch(error){
+                console.log(error);
+            }
         }
-    }
-    localStorage.token && localStorage.token.length? fetchProfileData(): "";
-},[])
+        localStorage.token && localStorage.token.length? fetchProfileData(): "";
+    },[])
 
 
     return(
@@ -43,7 +42,6 @@ useEffect(()=>{
                     <div key={idx}>
                     <div className="offer">
                     <div className="title">{post.title}</div>
-                    <button className="button">More details</button>
                     </div>
 
                     <div className="textSpace">

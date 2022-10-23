@@ -48,17 +48,15 @@ return(
                     <div className="offer">
                         <div className="username">User {post.author.username}</div>
                         <div className="title">{post.title}</div>
-
-                    
-                    
-                    
                     </div>
                     {/* more details area calls more details */}
                     <div className="textSpace">
                         <div className="price">Price = {post.price}</div>
                         <div className="description">Description:{post.description}</div>  
+                        <div className="buttonHangar">
                         <SeeDetails post={post}/>
                         <SendMessage post={post}/> 
+                        </div>
                     </div>
                 </div>
                 // do nothing

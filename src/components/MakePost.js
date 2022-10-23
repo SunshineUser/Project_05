@@ -20,7 +20,7 @@ const MakePost =({setPostData, fetchPostData}) =>{
                 method: "POST",
                 headers:{
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer '+ localStorage.getItem("token")
+                    'Authorization': `Bearer ${localStorage.getItem("token")}`
                 },
                 body: JSON.stringify({
                     post:{
@@ -31,9 +31,11 @@ const MakePost =({setPostData, fetchPostData}) =>{
                     }
                 })
             })
+            console.log(fetch);
         }catch(error){
             console.log(error);
         }
+        
         //run the function upon event
         fetchPostData(setPostData);
         //reset all values within the bar upon using the event.

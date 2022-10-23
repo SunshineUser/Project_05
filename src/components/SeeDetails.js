@@ -17,9 +17,11 @@ const SeeDetails = (post) =>{
 
     return(
         <div>
+            <div className="seeDetails">
             <button onClick={detailsLocationToggle}>
             {showDetailsToggle? <p>Less details</p>:<p>More details</p>}
             </button>
+            
             {/* All extra details in a good format */}
             {showDetailsToggle ?<div>
             <div className="createdAt">Time posted: {dateParser(post.post.createdAt)}</div>
@@ -28,6 +30,7 @@ const SeeDetails = (post) =>{
             <div className="willDeliver">The author is {post.post.willDeliver? "willing":"not willing"} to deliver</div>
             </div>
             :""}
+            </div>
 
         </div>
     )

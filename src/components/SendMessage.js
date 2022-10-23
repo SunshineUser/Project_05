@@ -15,11 +15,11 @@ const SendMessage = (post)=>{
 
     async function messageThroughAPI(event){
         event.preventDefault()
-        try{
-            const response = await fetch("https//:strangers-things.herokuapp.com/api/2209-ftb-mt-web-ft/posts/"+post.post._id+"/messages", {
+        try{                        
+            const response = await fetch(`https//:strangers-things.herokuapp.com/api/2209-ftb-mt-web-ft/posts/${post.post._id}/messages`, {
                 method: "POST",
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': "application/json",
                     'Authorization': `Bearer ${localStorage.getItem("token")}`
                 },
                 body: JSON.stringify({
@@ -27,7 +27,8 @@ const SendMessage = (post)=>{
                       content: "userMessage"
                     }
                 })
-            })
+            }) 
+            console.log(fetch);
             const responseInfo = await response.json()
             console.log("this is the messageAPI info " + responseInfo);
         } catch(error){
@@ -42,16 +43,18 @@ const SendMessage = (post)=>{
         //text box that recieves the message as the user types it and sends it.
         <div>
             {/* toggle button for send message feature haha I named it toggle toggle */}
+            <div className="sendMessage">
             <button onClick={toggleToggle}>
                 {toggleButton? <p>Close message form</p>:<p>Send a private message?</p>}
             </button>
+            </div>
             {toggleButton?<div>
                 <form onSubmit={messageThroughAPI} type="submit">
                     <label>Send a message to the user?</label>
                     <input type="text" value={userMessage} onChange={(event)=> {setMessage(event.target.value)
                         console.log(event.target.value)}}>
                     </input>
-                    <button className="sendMessage" type="submit">Submit Message</button>
+                    <button  type="submit">Submit Message</button>
                 </form>
             </div>:""}
         </div>
