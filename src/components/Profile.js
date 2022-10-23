@@ -12,7 +12,8 @@ useEffect(()=>{
     async function fetchProfileData(){
         try{
 
-            const response = await fetch("https://strangers-things.herokuapp.com/api/2209-ftb-mt-web-ft/users/me",{
+            const response = await fetch("https://strangers-things.herokuapp.com/api/2209-ftb-mt-web-ft/users/me",
+            {
             headers:{
                 'Content-Type': 'application/json',
                 'Authorization': 'bearer '+ localStorage.getItem("token")
@@ -48,9 +49,6 @@ useEffect(()=>{
                     <div className="textSpace">
                     <div className="price">Price = {post.price}</div>
                     <div className="description">Description:{post.description}</div> 
-                    {/* <Link to={`/Profile/${post._id}`}>Edit Post</Link> 
-                    
-                    welp we tried boys, maybe next time (after I rewrite the entire thing)*/}
                     <EditPost post={post}/>
                     <DeletePost post={post._id}/>
                     </div>

@@ -1,8 +1,8 @@
 import React, {useEffect, useState } from "react";
-import ReactDOM from "react-dom";
-import MakePost from "./MakePost"
-import { Outlet } from 'react-router-dom'
-import SeeDetails from './SeeDetails'
+import MakePost from "./MakePost";
+import SeeDetails from './SeeDetails';
+import SendMessage from "./SendMessage";
+
 
 //establish posts component for outputting visual post information as well as managing the posts, including deleting posts and sending them (within separate trees)
 const Posts=()=>{
@@ -28,6 +28,7 @@ const Posts=()=>{
         }
         
     }
+    //what am I doing here, I wrote this code so long ago. 
     useEffect(()=>{ 
         fetchPostData(setPostData);
     },[])
@@ -42,22 +43,23 @@ return(
                 return (
                     // eww a complex piece of code that "deletes" non active items
                 post.active?
+
                 <div key={idx}>
-                <div className="offer">
-                <div className="username">User       {post.author.username}</div>
-                <div className="title">{post.title}</div>
+                    <div className="offer">
+                        <div className="username">User {post.author.username}</div>
+                        <div className="title">{post.title}</div>
 
-                {/* more details area calls more details */}
-                {/* <Outlet context={post}/> */}
-                
-
-                </div>
-
-                <div className="textSpace">
-                <div className="price">Price = {post.price}</div>
-                <div className="description">Description:{post.description}</div>  
-                <SeeDetails post={post}/>
-                </div>
+                    
+                    
+                    
+                    </div>
+                    {/* more details area calls more details */}
+                    <div className="textSpace">
+                        <div className="price">Price = {post.price}</div>
+                        <div className="description">Description:{post.description}</div>  
+                        <SeeDetails post={post}/>
+                        <SendMessage post={post}/> 
+                    </div>
                 </div>
                 // do nothing
                 :""

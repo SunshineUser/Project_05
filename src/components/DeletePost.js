@@ -12,7 +12,7 @@ const DeletePost = (props)=>{
             console.log(`https://strangers-things.herokuapp.com/api/2209-ftb-mt-web-ft/posts/${props.post}`);
             const response = await fetch(`https://strangers-things.herokuapp.com/api/2209-ftb-mt-web-ft/posts/${props.post}`,{
                 method: "DELETE",
-                headers:{
+                headers: {
                     "Content-Type": "application/json",
                     'Authorization': "Bearer "+ localStorage.getItem("token")
                 }

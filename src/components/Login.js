@@ -4,9 +4,12 @@
 import { useState } from "react"
 import React from "react";
 import ReactDOM from "react-dom";
+import {useNavigate} from "react-router-dom";
 
 
 const LogIn=() =>{
+
+    const navigate = useNavigate();
 
     //logout function lmao (resets token and that's all it needs to do)
     const logOut=()=>{
@@ -49,24 +52,24 @@ const LogIn=() =>{
             console.log("this is our translated data: ", data)
             // local storageToken 
             localStorage.setItem("token", data.data.token);
-             
+
         }catch(error){
             console.log(error);
         }
+        navigate("../Profile");
     }
 
     const updatePasswordState = (event)=> {
         console.log("this is the value of the event target", event.target.value);
         setPassword(event.target.value)
     }
-
-
+    
     return(
         <div>
-            {/* attach the callback function that we just wrote to the form element itself and specifically we need to create a ne event listeneder for an onSubmit Event */}
+            {/* attach the callback function that we just wrote to the form element itself and specifically we need to create an on event listener for an onSubmit Event */}
             
             {/* ternary for logout checks log condition */}
-            {!localStorage.token && !localStorage.token.length?
+            {!localStorage.token?
 
             <form onSubmit={formSubmitHandler}>
                 <label>Enter Username Here  </label>
@@ -76,8 +79,7 @@ const LogIn=() =>{
                 <br/>
 
                 <label>Enter Password Here  </label>
-                <input type="text" value={password} onChange={(updatePasswordState)}></input>
-
+                <input type="password" value={password} onChange={(updatePasswordState)}></input>
                 <br/>
 
                 <button id="Login" type="submit">Log in</button>
