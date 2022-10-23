@@ -14,8 +14,7 @@ const Posts=()=>{
     
 
     const handlePostFormToggle=() => makePostToggle? setMakePostToggle(false):setMakePostToggle(true)
-    
-    
+
     async function fetchPostData(cB){
         try{
             const response = await fetch("https://strangers-things.herokuapp.com/api/2209-ftb-mt-web-ft/posts");

@@ -93,7 +93,6 @@ form{
     width:70%;
     height:70%;
     padding:1em;
-    
 }
 
 .currentUser{
@@ -126,10 +125,8 @@ form{
     background-color:#ABEDC6;
 }
 
-body
-{
+body{
     background-color:#c6f8e7;
-
 }
 
 #descriptor{
